@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>CM</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="Resources/css/style.css" />
+    </h:head>
+    <h:body>
+
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar" />
+                        <span class="icon-bar" />
+                        <span class="icon-bar" />
+                    </button><a href="faces/index.xhtml" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true" /> HOME</a></div>
+
+                <div class="collapse navbar-collapse" id="bs-nav-demo">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Celebrity Management</a></li>
+                        <li><a href="#"></a></li></ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Sign Up</a></li>
+                        <li><a href="#">Login</a></li></ul></div></div></nav>
+        <div class="container">
+
+            <div class="jumbotron">
+                <h1><i class="fa fa-camera-retro" aria-hidden="true" /> Celebrity Management </h1>
+                <p>Choose a button </p>
+            </div>
+        </div>
+
+        <h:form>   
+
+            <h:panelGrid columns="1" style = "margin: 0 auto;">
+                <h:outputText value="CELEBRITY DETAILS"/>
+            </h:panelGrid>
+            <h:panelGroup/>
+            <h:panelGrid columns="2" style = "margin: 0 auto;">
+
+
+                <p:outputLabel for ="name" value = "Name"/> 
+                <p:inputText id ="name" value ="#{controllerBean.name}"/>
+
+                <p:outputLabel for ="age" value ="Age"/>
+                <p:inputText id ="age" value ="#{controllerBean.age}"/>
+
+                <p:outputLabel for = "salary" value = "Salary"/> 
+                <p:inputText id ="salary" value ="#{controllerBean.salary}"/>             
+
+                <p:outputLabel for ="picture" value ="Image"/>
+                <p:inputText id ="picture" value ="#{controllerBean.picture}"/>
+                <h:panelGroup/>
+
+                <div class ="break">
+                    <p:commandButton  class ="buttonleft" value ="Add" action="#{controllerBean.submit()}" immediate="false" />
+                    <p:commandButton class ="buttonright" value ="Back to startpage" action="index"/>
+                    <div style="clear:both;"></div>
+                </div>
+                <h:panelGroup/>
+            </h:panelGrid>
+        </h:form>        
+
+
+
+        <h:form class="Form2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm-2">
+                        <p:dataTable var="celeb" value="#{controllerBean.celebrityList}">
+                            <p:column headerText="Id">
+                                <h:outputText value="#{celeb.id}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                    <div class="col-sm-4">
+                        <p:dataTable var="celeb" value="#{controllerBean.celebrityList}">
+                            <p:column headerText="Name">
+                                <h:outputText value="#{celeb.name}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                    <div class="col-sm-2">
+                        <p:dataTable var="celeb" value="#{controllerBean.celebrityList}">
+                            <p:column headerText="Age">
+                                <h:outputText value="#{celeb.age}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                    <div class="col-sm-2">
+                        <p:dataTable var="celeb" value="#{controllerBean.celebrityList}">
+                            <p:column headerText="Salary">
+                                <h:outputText value="#{celeb.salary}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <p:dataTable var="celeb" value="#{controllerBean.celebrityList}">
+                            <p:column headerText="Delete">
+                                <h:commandButton class="buttondelete" value ="Delete" action="#{controllerBean.removeCelebById(celeb.id)}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </h:form>
+
+    </h:body>
+</html>
+

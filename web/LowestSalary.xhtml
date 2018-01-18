@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+
+        <title>CM</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="gallery.css" />
+
+    </head>
+    <body><nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar" />
+                        <span class="icon-bar" />
+                        <span class="icon-bar" />
+                    </button><a href="faces/index.xhtml" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true" /> HOME</a></div>
+
+                <div class="collapse navbar-collapse" id="bs-nav-demo">
+                    <ul class="nav navbar-nav">
+                        <li><a href="faces/management.xhtml">Object Management</a></li>
+                        <li><a href="faces/voting.xhtml">Most popular</a></li></ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="faces/showMeTheMoney.xhtml">Show me the money!</a></li>
+                        <li><a href="faces/LowestSalary.xhtml">Who has lowest salary?</a></li></ul></div></div></nav>
+        <div class="container">
+
+            <div class="jumbotron">
+
+                <h1><i class="" aria-hidden="true" />Who has the lowest salary?</h1>
+
+                <p>Here they are </p>
+            </div>
+            <h:form class="Form1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+
+                        <div class="col-sm-8">
+
+
+
+                            <p:dataTable  var="celeb" value="#{controllerBean.poorestCelebrityList}">
+                                <p:column style="border-color: white; background-color: white" headerText="">
+                                    <div class="voting-block">
+                                        <h3>
+                                            <h:outputText value="#{controllerBean.poorestCelebrityList.indexOf(celeb)+ 1}. " />
+                                            <h:outputText value="#{celeb.name}" />
+                                        </h3>
+                                        <img src="#{celeb.picture}" alt=""  height="300" width="525"/>
+
+                                    </div>
+                                </p:column>
+                            </p:dataTable>
+
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+
+            </h:form>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-2.x-git.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+
+</html>
+
+
